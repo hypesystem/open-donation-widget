@@ -28,6 +28,9 @@ MoneyHandler.prototype.getName = function() {
     return this.name;
 };
 
-if(module && module.exports) {
+if(typeof module !== "undefined") {
     module.exports = MoneyHandler;
+}
+if(define) {
+    define(function() { return MoneyHandler; });
 }

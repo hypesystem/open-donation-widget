@@ -29,6 +29,9 @@ function handleInputChange() {
     });
 }
 
-if(module && module.exports) {
+if(typeof module !== "undefined") {
     module.exports = AmountField;
+}
+if(define) {
+    define(function() { return AmountField; });
 }
