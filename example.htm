@@ -80,7 +80,7 @@
             </form>
         </div>
         <script src="./MoneyHandler.js"></script>
-        <script src="./OpenDonationAmountField.js"></script>
+        <script src="./AmountField.js"></script>
         <script>
             var moneyHandlers = [
                 new MoneyHandler("Payments Provider", 5, 0.25),
@@ -88,7 +88,7 @@
                 new MoneyHandler("Creator")
             ];
             var inputBox = document.querySelectorAll(".open-donation.donation-input")[0];
-            var input = new OpenDonationAmountField(inputBox, moneyHandlers);
+            var input = new AmountField(inputBox, moneyHandlers);
             var explainerBox = document.querySelectorAll(".open-donation.monetary-transparency-explainer")[0];
             input.onChange(function(strings) {
                 explainerBox.innerHTML = "";

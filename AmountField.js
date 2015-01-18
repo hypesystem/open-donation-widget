@@ -1,4 +1,4 @@
-var OpenDonationAmountField = function(domElement, moneyHandlers) {
+var AmountField = function(domElement, moneyHandlers) {
     this.domElement = domElement;
     this.moneyHandlers = moneyHandlers || [];
     this.listeners = [];
@@ -6,11 +6,11 @@ var OpenDonationAmountField = function(domElement, moneyHandlers) {
     this.domElement.addEventListener("input", handleInputChange.bind(this));
 };
 
-OpenDonationAmountField.prototype.onChange = function(listener) {
+AmountField.prototype.onChange = function(listener) {
     this.listeners.push(listener);
 };
 
-OpenDonationAmountField.prototype.triggerChangeHandlers = function() {
+AmountField.prototype.triggerChangeHandlers = function() {
     handleInputChange.call(this);
 };
 
@@ -30,5 +30,5 @@ function handleInputChange() {
 }
 
 if(module && module.exports) {
-    module.exports = OpenDonationAmountField;
+    module.exports = AmountField;
 }
