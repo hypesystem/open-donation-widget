@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Example | open-donation-wiget</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+        <style type="text/css">
+            html {
+                text-align: center;
+                margin: 50px 0;
+            }
+            body {
+                text-align: left;
+                display: inline-block;
+            }
+            .donation-form-row.button-row {
+                margin-top: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="open-donation donation-box panel panel-default">
+            <div class="panel-body">
+                <form class="open-donation donation-form container">
+                    <div class="open-donation donation-row donation-form-row row">
+                        <div class="open-donation number-input-wrapper col-xs-12 col-sm-3 col-md-2">
+                            <input type="number" placeholder="0.00" value="0.00" name="open-donation-amount" class="open-donation donation-input form-control">
+                        </div>
+                        <div class="open-donation monetary-transparency-explainer col-xs-12 col-sm-9 col-md-10">
+                            
+                        </div>
+                    </div>
+                    <div class="open-donation button-row donation-form-row row">
+                        <div class="button-wrapper col-xs-12">
+                            <button class="open-donation submit-button btn btn-success btn-lg btn-block">Donate</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="../MoneyHandler.js"></script>
+        <script src="../AmountField.js"></script>
+        <script>
+            var moneyHandlers = [
+                new MoneyHandler("Payments Provider", 5, 0.25),
+                new MoneyHandler("Platform", 2, 0),
+                new MoneyHandler("Creator")
+            ];
+            var inputBox = document.querySelectorAll(".open-donation.donation-input")[0];
+            var input = new AmountField(inputBox, moneyHandlers);
+            var explainerBox = document.querySelectorAll(".open-donation.monetary-transparency-explainer")[0];
+            input.onChange(function(strings) {
+                explainerBox.innerHTML = "";
+                strings.forEach(function(str) {
+                    explainerBox.innerHTML += "<div>" + str + "</div>";
+                });
+            });
+            input.triggerChangeHandlers();
+        </script>
+    </body>
+</html>
