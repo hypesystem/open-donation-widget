@@ -80,6 +80,7 @@
             </form>
         </div>
         <script src="./MoneyHandler.js"></script>
+        <script src="./OpenDonationAmountField.js"></script>
         <script>
             var moneyHandlers = [
                 new MoneyHandler("Payments Provider", 5, 0.25),
@@ -87,26 +88,15 @@
                 new MoneyHandler("Creator")
             ];
             var inputBox = document.querySelectorAll(".open-donation.donation-input")[0];
-            function updateMonetaryTransparency() {
-                var amount = inputBox.value;
-                var rest = amount;
-                var strings = [];
-                moneyHandlers.forEach(function(moneyHandler) {
-                    var earnings = moneyHandler.getEarnings(amount, rest);
-                    rest = rest - earnings;
-                    strings.push(earnings.toFixed(2) + "$ (" + moneyHandler.toString() + ") -> " + moneyHandler.getName());
-                });
-                console.log("rest is", rest);
-                var explainerBox = document.querySelectorAll(".open-donation.monetary-transparency-explainer")[0];
+            var input = new OpenDonationAmountField(inputBox, moneyHandlers);
+            var explainerBox = document.querySelectorAll(".open-donation.monetary-transparency-explainer")[0];
+            input.onChange(function(strings) {
                 explainerBox.innerHTML = "";
                 strings.forEach(function(str) {
                     explainerBox.innerHTML += "<div>" + str + "</div>";
                 });
-            }
-            inputBox.addEventListener("input", function(e) {
-                updateMonetaryTransparency();
             });
-            updateMonetaryTransparency();
+            input.triggerChangeHandlers();
         </script>
     </body>
 </html>
