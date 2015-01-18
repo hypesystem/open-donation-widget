@@ -1,0 +1,28 @@
+{
+  "name": "open-donation-widget",
+  "version": "0.0.0",
+  "description": "HTML/JS donation widget allowing monetary transparency",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hypesystem/open-donation-widget"
+  },
+  "keywords": [
+    "donation",
+    "widget",
+    "money",
+    "calculate"
+  ],
+  "author": "Niels Roesen Abildgaard <me@hypesystem.dk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hypesystem/open-donation-widget/issues"
+  },
+  "homepage": "https://github.com/hypesystem/open-donation-widget"
+}
