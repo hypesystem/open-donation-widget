@@ -1,4 +1,4 @@
-define(["require", "local/AmountField", "local/MoneyHandler"], function(require, AmountField, MoneyHandler) {
+define(function(require) {
     var moneyHandlers = [
         new MoneyHandler("Payments Provider", 5, 0.25),
         new MoneyHandler("Platform", 2, 0),
