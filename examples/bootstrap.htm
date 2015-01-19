@@ -39,24 +39,17 @@
                 </form>
             </div>
         </div>
-        <script src="../MoneyHandler.js"></script>
-        <script src="../AmountField.js"></script>
+        <script src="../build/open-donation-widget-0.0.0.js"></script>
         <script>
-            var moneyHandlers = [
-                new MoneyHandler("Payments Provider", 5, 0.25),
-                new MoneyHandler("Platform", 2, 0),
-                new MoneyHandler("Creator")
-            ];
             var inputBox = document.querySelectorAll(".open-donation.donation-input")[0];
-            var input = new AmountField(inputBox, moneyHandlers);
             var explainerBox = document.querySelectorAll(".open-donation.monetary-transparency-explainer")[0];
-            input.onChange(function(strings) {
-                explainerBox.innerHTML = "";
-                strings.forEach(function(str) {
-                    explainerBox.innerHTML += "<div>" + str + "</div>";
-                });
+            var form = new OpenDonationForm(inputBox, explainerBox, {
+                moneyHandlers: [
+                    { name: "Payments Provider", percentage: 5, fee: 0.25 },
+                    { name: "Platform",          percentage: 2, fee: 0    },
+                    { name: "Creator"                                     }
+                ]
             });
-            input.triggerChangeHandlers();
         </script>
     </body>
 </html>
