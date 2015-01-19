@@ -1,7 +1,3 @@
-var _ = require("underscore");
-var AmountField = require("./AmountField.js");
-var MoneyHandler = require("./MoneyHandler.js");
-
 var OpenDonationForm = function(inputField, outputWrapper, options) {
     var defaultOptions = {
         
