@@ -25,7 +25,5 @@
     "url": "https://github.com/hypesystem/open-donation-widget/issues"
   },
   "homepage": "https://github.com/hypesystem/open-donation-widget",
-  "dependencies": {
-    "underscore": "^1.7.0"
-  }
+  "dependencies": {}
 }
