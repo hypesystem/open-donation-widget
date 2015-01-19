@@ -2,7 +2,39 @@
 It leaves styling to the end-user (but there are plans to add some default styles for popular frontend frameworks).
 There are also plans to add support for popular backend frameworks, to make it easily integratable.
 
+Installing
+==========
 
+open-donation-widget is meant to be used in the browser.
+The easiest way to do so, is to grab a build in the `build/` folder, and reference it from your website:
+
+```
+<script src="open-donation-widget-0.0.0.js"></script>
+```
+
+This will allow all following scripts to access `OpenDonationForm`.
+This object is instantiated with two DOM elements: the input field, and the are in which to output.
+The third argument is an options-object.
+The options are as follows:
+
+- `moneyHandlers`: An array of objects with `name`, `percentage` (optional), and `fee` (optional).
+  These describe someone who may take an amount of the money as it passes through the system.
+
+```javascript
+var input = document.querySelectorAll("input[type=number]")[0];
+var output = document.querySelectorAll("#output")[0];
+var form = new OpenDonationForm(input, output, {
+    moneyHandlers: [
+        { name: "Payments Provider", percentage: 5, fee: 0.25 },
+        { name: "Platform",          percentage: 2, fee: 0    },
+        { name: "Creator"                                     }
+    ]
+});
+```
+
+The result is a nice little info-bit about where the money went.
+
+![screenshot of example](http://i.imgur.com/APRTS7R.png)
 
 ### Dependencies
 
