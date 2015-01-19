@@ -25,7 +25,9 @@
     "url": "https://github.com/hypesystem/open-donation-widget/issues"
   },
   "homepage": "https://github.com/hypesystem/open-donation-widget",
-  "dependencies": {},
+  "dependencies": {
+    "underscore": "^1.7.0"
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-browserify": "^3.3.0"
