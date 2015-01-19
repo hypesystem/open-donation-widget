@@ -6,6 +6,8 @@ module.exports = function(grunt) {
                 src: ['lib/OpenDonationForm.js'],
                 dest: 'build/open-donation-widget-<%=pkg.version%>.js',
                 options: {
+                    watch: true,
+                    keepAlive: true,
                     basedir: 'lib',
                     browserifyOptions: {
                         standalone: "OpenDonationForm"
