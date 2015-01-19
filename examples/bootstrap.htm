@@ -6,43 +6,52 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
         <style type="text/css">
-            html {
-                text-align: center;
-                margin: 50px 0;
-            }
-            body {
-                text-align: left;
-                display: inline-block;
-            }
-            .donation-form-row.button-row {
+            .right-side {
                 margin-top: 30px;
+            }
+            .right-side .panel .row > div {
+                padding-top: 20px;
             }
         </style>
     </head>
     <body>
-        <div class="open-donation donation-box panel panel-default">
-            <div class="panel-body">
-                <form class="open-donation donation-form container">
-                    <div class="open-donation donation-row donation-form-row row">
-                        <div class="open-donation number-input-wrapper col-xs-12 col-sm-3 col-md-2">
-                            <input type="number" placeholder="0.00" value="0.00" step="0.10" name="open-donation-amount" class="open-donation donation-input form-control">
-                        </div>
-                        <div class="open-donation monetary-transparency-explainer col-xs-12 col-sm-9 col-md-10">
-                            
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-7 col-md-9">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h1>Website With Donations</h1>
                         </div>
                     </div>
-                    <div class="open-donation button-row donation-form-row row">
-                        <div class="button-wrapper col-xs-12">
-                            <button class="open-donation submit-button btn btn-success btn-lg btn-block">Donate</button>
+                    <img src="http://lorempixel.com/900/200" width="100%">
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-3 right-side">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <form class="open-donation donation-form">
+                                <div class="open-donation donation-row donation-form-row row">
+                                    <div class="open-donation number-input-wrapper col-xs-12">
+                                        <input type="number" placeholder="0.00" value="0.00" step="0.10" name="open-donation-amount" id="donation-input" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="open-donation col-xs-12" id="monetary-transparency-explainer"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <button class="open-donation submit-button btn btn-success btn-lg btn-block">Donate</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
         <script src="../build/open-donation-widget-0.0.0.js"></script>
         <script>
-            var inputBox = document.querySelectorAll(".open-donation.donation-input")[0];
-            var explainerBox = document.querySelectorAll(".open-donation.monetary-transparency-explainer")[0];
+            var inputBox = document.querySelectorAll("#donation-input")[0];
+            var explainerBox = document.querySelectorAll("#monetary-transparency-explainer")[0];
             var form = new OpenDonationForm(inputBox, explainerBox, {
                 moneyHandlers: [
                     { name: "Payments Provider", percentage: 5, fee: 0.25 },
