@@ -3,6 +3,8 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json')
     });
     
+    grunt.loadNpmTasks('grunt-browserify');
+    
     grunt.registerTask('default', 'Build javascript to single file', function() {
         grunt.log.write("not implemented").error();
     });
