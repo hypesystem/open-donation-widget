@@ -83,7 +83,13 @@
         <script>
             var inputBox = document.querySelectorAll(".open-donation.donation-input")[0];
             var explainerBox = document.querySelectorAll(".open-donation.monetary-transparency-explainer")[0];
-            var form = new OpenDonationForm(inputBox, explainerBox);
+            var form = new OpenDonationForm(inputBox, explainerBox, {
+                moneyHandlers: [
+                    { name: "Payments Provider", percentage: 5, fee: 0.25 },
+                    { name: "Platform",          percentage: 2, fee: 0    },
+                    { name: "Creator"                                     }
+                ]
+            });
         </script>
     </body>
 </html>
